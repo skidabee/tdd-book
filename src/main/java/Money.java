@@ -1,12 +1,19 @@
 public abstract class Money {
-    protected int amount;
 
-    public static Dollar dollar(int amount) {
-        return new Dollar(amount);
+    Money(int amount, String currency) {
+        this.currency = currency;
+        this.amount = amount;
     }
 
-    public static Franc franc(int amount) {
-        return new Franc(amount);
+    protected int amount;
+    protected String currency;
+
+    public static Money dollar(int amount) {
+        return new Dollar(amount, "USD");
+    }
+
+    static Money franc(int amount) {
+        return new Franc(amount, "CHF");
     }
 
     @Override
@@ -17,4 +24,8 @@ public abstract class Money {
     }
 
     abstract Money times(int i);
+
+    public String currency() {
+        return currency;
+    }
 }
