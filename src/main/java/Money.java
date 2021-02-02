@@ -35,4 +35,8 @@ public class Money {
     Money times(int multiplier) {
         return new Money(amount * multiplier, currency);
     }
+
+    public Expression plus(Money addend) {
+        return null;
+    }
 }
